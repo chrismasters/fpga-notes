@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/chris/fpga/sdramcontroller/tester.ncd
+OUTFILE=/home/chris/fpga/sdramcontroller/tester.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/home/chris/fpga/sdramcontroller
+LICENSE=WebPack
+USER_INFO=210775458_0_0_774

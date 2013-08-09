@@ -1,0 +1,11 @@
+vhdtdtfi -prj sdramcontroller -o /home/chris/fpga/sdramcontroller/sdramcontroller.vhi -module sdramcontroller -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work sdramcontroller.vhd 
+xst -intstyle ise -ifn "/home/chris/fpga/sdramcontroller/sdramcontroller.xst" -ofn "/home/chris/fpga/sdramcontroller/sdramcontroller.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc /home/chris/fpga/space-invaders/constraints.ucf -p xc6slx9-tqg144-2 sdramcontroller.ngc sdramcontroller.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-tqg144-2 sdramcontroller.ngc sdramcontroller.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o sdramcontroller_map.ncd sdramcontroller.ngd sdramcontroller.pcf 
+xst -intstyle ise -ifn "/home/chris/fpga/sdramcontroller/sdramcontroller.xst" -ofn "/home/chris/fpga/sdramcontroller/sdramcontroller.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-tqg144-2 sdramcontroller.ngc sdramcontroller.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o sdramcontroller_map.ncd sdramcontroller.ngd sdramcontroller.pcf 
+par -w -intstyle ise -ol high -mt off sdramcontroller_map.ncd sdramcontroller.ncd sdramcontroller.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml sdramcontroller.twx sdramcontroller.ncd -o sdramcontroller.twr sdramcontroller.pcf 
+vhdtdtfi -prj sdramcontroller -o /home/chris/fpga/sdramcontroller/sdramcontroller.vhi -module sdramcontroller -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work sdramcontroller.vhd 

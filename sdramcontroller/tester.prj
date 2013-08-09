@@ -1,0 +1,3 @@
+vhdl work "ipcore_dir/clks.vhd"
+vhdl work "sdramcontroller.vhd"
+vhdl work "tester.vhd"

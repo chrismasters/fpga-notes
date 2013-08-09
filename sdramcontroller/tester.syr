@@ -1,0 +1,689 @@
+Release 14.6 - xst P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Reading design: tester.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "tester.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "tester"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-tqg144
+
+---- Source Options
+Top Module Name                    : tester
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/chris/fpga/sdramcontroller/ipcore_dir/clks.vhd" into library work
+Parsing entity <clks>.
+Parsing architecture <xilinx> of entity <clks>.
+Parsing VHDL file "/home/chris/fpga/sdramcontroller/sdramcontroller.vhd" into library work
+Parsing entity <sdramcontroller>.
+Parsing architecture <Behavioral> of entity <sdramcontroller>.
+Parsing VHDL file "/home/chris/fpga/sdramcontroller/tester.vhd" into library work
+Parsing entity <tester>.
+Parsing architecture <Behavioral> of entity <tester>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <tester> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <clks> (architecture <xilinx>) from library <work>.
+
+Elaborating entity <sdramcontroller> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "/home/chris/fpga/sdramcontroller/sdramcontroller.vhd" Line 70: currentstate should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "/home/chris/fpga/sdramcontroller/tester.vhd" Line 137: clk133inv should be on the sensitivity list of the process
+WARNING:HDLCompiler:634 - "/home/chris/fpga/sdramcontroller/tester.vhd" Line 70: Net <stopClock> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/chris/fpga/sdramcontroller/tester.vhd" Line 71: Net <holdClockLow> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/chris/fpga/sdramcontroller/tester.vhd" Line 72: Net <holdClockHigh> does not have a driver.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <tester>.
+    Related source file is "/home/chris/fpga/sdramcontroller/tester.vhd".
+WARNING:Xst:647 - Input <up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <stopClock> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <holdClockLow> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <holdClockHigh> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 1-bit register for signal <A<6>>.
+    Found 1-bit register for signal <A<5>>.
+    Found 1-bit register for signal <A<4>>.
+    Found 4-bit register for signal <currentState>.
+    Found 4-bit register for signal <nextLights>.
+    Found 32-bit register for signal <waitCounter>.
+    Found 16-bit register for signal <xaddr>.
+    Found 2-bit register for signal <xcmd>.
+    Found 8-bit register for signal <xdataIn>.
+    Found 1-bit register for signal <A<7>>.
+    Found finite state machine <FSM_0> for signal <currentState>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 23                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 9                                              |
+    | Clock              | clk133inv (rising_edge)                        |
+    | Power Up State     | s0                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit adder for signal <nextLights[3]_GND_6_o_add_23_OUT> created at line 222.
+    Found 32-bit adder for signal <waitCounter[31]_GND_6_o_add_24_OUT> created at line 225.
+INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal DATA<7:0> may hinder XST clustering optimizations.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  66 D-type flip-flop(s).
+	inferred  14 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <tester> synthesized.
+
+Synthesizing Unit <clks>.
+    Related source file is "/home/chris/fpga/sdramcontroller/ipcore_dir/clks.vhd".
+    Summary:
+	no macro.
+Unit <clks> synthesized.
+
+Synthesizing Unit <sdramcontroller>.
+    Related source file is "/home/chris/fpga/sdramcontroller/sdramcontroller.vhd".
+    Found 1-bit register for signal <ready>.
+    Found 4-bit register for signal <chipCmd>.
+    Found 5-bit register for signal <currentState>.
+    Found 32-bit register for signal <waitCounter>.
+    Found 2-bit register for signal <chipBA>.
+    Found 12-bit register for signal <chipADDR>.
+    Found 1-bit register for signal <writeChipDataEnable>.
+    Found 1-bit register for signal <chipDQMH>.
+    Found 1-bit register for signal <chipDQML>.
+    Found 8-bit register for signal <writeBuffer>.
+    Found 8-bit register for signal <dataOut>.
+    Found finite state machine <FSM_1> for signal <currentState>.
+    -----------------------------------------------------------------------
+    | States             | 23                                             |
+    | Transitions        | 31                                             |
+    | Inputs             | 8                                              |
+    | Outputs            | 19                                             |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | init0                                          |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 32-bit adder for signal <waitCounter[31]_GND_11_o_add_25_OUT> created at line 141.
+    Found 1-bit tristate buffer for signal <chipDATA<15>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<14>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<13>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<12>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<11>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<10>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<9>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<8>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<7>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<6>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<5>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<4>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<3>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<2>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<1>> created at line 65
+    Found 1-bit tristate buffer for signal <chipDATA<0>> created at line 65
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  66 D-type flip-flop(s).
+	inferred  20 Multiplexer(s).
+	inferred  16 Tristate(s).
+	inferred   1 Finite State Machine(s).
+Unit <sdramcontroller> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 3
+ 32-bit adder                                          : 2
+ 4-bit adder                                           : 1
+# Registers                                            : 16
+ 1-bit register                                        : 6
+ 12-bit register                                       : 1
+ 16-bit register                                       : 1
+ 2-bit register                                        : 1
+ 32-bit register                                       : 2
+ 4-bit register                                        : 2
+ 8-bit register                                        : 3
+# Multiplexers                                         : 34
+ 1-bit 2-to-1 multiplexer                              : 5
+ 12-bit 2-to-1 multiplexer                             : 5
+ 32-bit 2-to-1 multiplexer                             : 18
+ 4-bit 2-to-1 multiplexer                              : 6
+# Tristates                                            : 16
+ 1-bit tristate buffer                                 : 16
+# FSMs                                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <xdataIn_7> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xdataIn_6> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xdataIn_5> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xdataIn_4> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_15> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_14> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_13> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_12> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_11> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_10> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_9> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_8> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_7> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_6> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_5> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_4> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_3> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_2> (without init value) has a constant value of 1 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_1> (without init value) has a constant value of 1 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_0> (without init value) has a constant value of 1 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <writeBuffer_7> has a constant value of 0 in block <iSdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <writeBuffer_6> has a constant value of 0 in block <iSdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <writeBuffer_5> has a constant value of 0 in block <iSdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <writeBuffer_4> has a constant value of 0 in block <iSdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <dataOut_4> of sequential type is unconnected in block <iSdram>.
+WARNING:Xst:2677 - Node <dataOut_5> of sequential type is unconnected in block <iSdram>.
+WARNING:Xst:2677 - Node <dataOut_6> of sequential type is unconnected in block <iSdram>.
+WARNING:Xst:2677 - Node <dataOut_7> of sequential type is unconnected in block <iSdram>.
+WARNING:Xst:2677 - Node <chipCmd_3> of sequential type is unconnected in block <iSdram>.
+WARNING:Xst:2404 -  FFs/Latches <xdataIn<7:4>> (without init value) have a constant value of 0 in block <tester>.
+WARNING:Xst:2404 -  FFs/Latches <xaddr<15:3>> (without init value) have a constant value of 0 in block <tester>.
+
+Synthesizing (advanced) Unit <tester>.
+The following registers are absorbed into counter <nextLights>: 1 register on signal <nextLights>.
+Unit <tester> synthesized (advanced).
+WARNING:Xst:2677 - Node <chipCmd_3> of sequential type is unconnected in block <sdramcontroller>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 32-bit adder                                          : 2
+# Counters                                             : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 110
+ Flip-Flops                                            : 110
+# Multiplexers                                         : 33
+ 1-bit 2-to-1 multiplexer                              : 5
+ 12-bit 2-to-1 multiplexer                             : 5
+ 32-bit 2-to-1 multiplexer                             : 18
+ 4-bit 2-to-1 multiplexer                              : 5
+# FSMs                                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <xaddr_0> (without init value) has a constant value of 1 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_1> (without init value) has a constant value of 1 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <xaddr_2> (without init value) has a constant value of 1 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <writeBuffer_4> in Unit <sdramcontroller> is equivalent to the following 3 FFs/Latches, which will be removed : <writeBuffer_5> <writeBuffer_6> <writeBuffer_7> 
+WARNING:Xst:1293 - FF/Latch <writeBuffer_4> has a constant value of 0 in block <sdramcontroller>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <currentState[1:4]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ s0    | 0000
+ s1    | 0001
+ s2    | 0010
+ s3    | 0011
+ s4    | 0100
+ s5    | 0101
+ s6    | 0110
+ s7    | 0111
+ s8    | 1000
+ s9    | 1001
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <iSdram/FSM_1> on signal <currentState[1:5]> with user encoding.
+----------------------
+ State    | Encoding
+----------------------
+ init0    | 00000
+ init1    | 00001
+ init2    | 00010
+ init3    | 00011
+ init4    | 00100
+ init5    | 00101
+ init6    | 00110
+ init7    | 00111
+ init8    | 01000
+ idle     | 01001
+ decoding | 01010
+ read1    | 01011
+ read2    | 01100
+ read3    | 01101
+ read4    | 01110
+ read5    | 01111
+ read6    | 10000
+ write1   | 10001
+ write2   | 10010
+ write3   | 10011
+ write4   | 10100
+ write5   | 10101
+ write6   | 10110
+----------------------
+WARNING:Xst:1710 - FF/Latch <chipADDR_3> (without init value) has a constant value of 0 in block <sdramcontroller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <chipADDR_4> (without init value) has a constant value of 0 in block <sdramcontroller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <chipADDR_6> (without init value) has a constant value of 0 in block <sdramcontroller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <chipADDR_7> (without init value) has a constant value of 0 in block <sdramcontroller>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:1901 - Instance iClocks/pll_base_inst in unit iClocks/pll_base_inst of type PLL_BASE has been replaced by PLL_ADV
+INFO:Xst:2261 - The FF/Latch <chipADDR_0> in Unit <sdramcontroller> is equivalent to the following 2 FFs/Latches, which will be removed : <chipADDR_1> <chipADDR_2> 
+WARNING:Xst:2677 - Node <iSdram/dataOut_7> of sequential type is unconnected in block <tester>.
+WARNING:Xst:2677 - Node <iSdram/dataOut_6> of sequential type is unconnected in block <tester>.
+WARNING:Xst:2677 - Node <iSdram/dataOut_5> of sequential type is unconnected in block <tester>.
+WARNING:Xst:2677 - Node <iSdram/dataOut_4> of sequential type is unconnected in block <tester>.
+
+Optimizing unit <tester> ...
+WARNING:Xst:1710 - FF/Latch <iSdram/chipADDR_11> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <iSdram/chipADDR_8> (without init value) has a constant value of 0 in block <tester>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block tester, actual ratio is 4.
+FlipFlop iSdram/currentState_FSM_FFd4 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 105
+ Flip-Flops                                            : 105
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : tester.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 373
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 62
+#      LUT2                        : 12
+#      LUT3                        : 13
+#      LUT4                        : 13
+#      LUT5                        : 22
+#      LUT6                        : 118
+#      MUXCY                       : 62
+#      MUXF7                       : 1
+#      VCC                         : 1
+#      XORCY                       : 64
+# FlipFlops/Latches                : 106
+#      FD                          : 17
+#      FDE                         : 84
+#      FDE_1                       : 4
+#      ODDR2                       : 1
+# Clock Buffers                    : 3
+#      BUFG                        : 3
+# IO Buffers                       : 44
+#      IBUF                        : 1
+#      IBUFG                       : 1
+#      IOBUF                       : 4
+#      OBUF                        : 26
+#      OBUFT                       : 12
+# Others                           : 1
+#      PLL_ADV                     : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             106  out of  11440     0%  
+ Number of Slice LUTs:                  244  out of   5720     4%  
+    Number used as Logic:               244  out of   5720     4%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    253
+   Number with an unused Flip Flop:     147  out of    253    58%  
+   Number with an unused LUT:             9  out of    253     3%  
+   Number of fully used LUT-FF pairs:    97  out of    253    38%  
+   Number of unique control sets:        12
+
+IO Utilization: 
+ Number of IOs:                          58
+ Number of bonded IOBs:                  44  out of    102    43%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
+ Number of PLL_ADVs:                      1  out of      2    50%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+iClocks/pll_base_inst/CLKOUT1      | BUFG                   | 51    |
+iClocks/pll_base_inst/CLKOUT0      | BUFG                   | 56    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 6.090ns (Maximum Frequency: 164.204MHz)
+   Minimum input arrival time before clock: 4.888ns
+   Maximum output required time after clock: 5.554ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'iClocks/pll_base_inst/CLKOUT1'
+  Clock period: 6.090ns (frequency: 164.204MHz)
+  Total number of paths / destination ports: 4481 / 92
+-------------------------------------------------------------------------
+Delay:               6.090ns (Levels of Logic = 4)
+  Source:            waitCounter_8 (FF)
+  Destination:       waitCounter_2 (FF)
+  Source Clock:      iClocks/pll_base_inst/CLKOUT1 rising
+  Destination Clock: iClocks/pll_base_inst/CLKOUT1 rising
+
+  Data Path: waitCounter_8 to waitCounter_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.525   1.042  waitCounter_8 (waitCounter_8)
+     LUT4:I0->O            1   0.254   1.112  waitCounter[31]_GND_6_o_equal_23_o<31>15 (waitCounter[31]_GND_6_o_equal_23_o<31>15)
+     LUT6:I1->O           10   0.254   1.008  waitCounter[31]_GND_6_o_equal_23_o<31>16 (waitCounter[31]_GND_6_o_equal_23_o<31>1)
+     LUT6:I5->O           17   0.254   1.317  Mmux_currentState[3]_X_6_o_wide_mux_34_OUT1011 (Mmux_currentState[3]_X_6_o_wide_mux_34_OUT1011)
+     LUT6:I4->O            1   0.250   0.000  Mmux_currentState[3]_X_6_o_wide_mux_34_OUT641 (currentState[3]_X_6_o_wide_mux_34_OUT<9>)
+     FDE:D                     0.074          waitCounter_9
+    ----------------------------------------
+    Total                      6.090ns (1.611ns logic, 4.479ns route)
+                                       (26.5% logic, 73.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'iClocks/pll_base_inst/CLKOUT0'
+  Clock period: 5.923ns (frequency: 168.833MHz)
+  Total number of paths / destination ports: 4725 / 97
+-------------------------------------------------------------------------
+Delay:               5.923ns (Levels of Logic = 4)
+  Source:            iSdram/waitCounter_16 (FF)
+  Destination:       iSdram/waitCounter_24 (FF)
+  Source Clock:      iClocks/pll_base_inst/CLKOUT0 rising
+  Destination Clock: iClocks/pll_base_inst/CLKOUT0 rising
+
+  Data Path: iSdram/waitCounter_16 to iSdram/waitCounter_24
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.525   1.221  iSdram/waitCounter_16 (iSdram/waitCounter_16)
+     LUT6:I0->O            2   0.254   1.002  iSdram/GND_11_o_GND_11_o_equal_10_o<31>12 (iSdram/GND_11_o_GND_11_o_equal_10_o<31>12)
+     LUT6:I2->O            6   0.254   0.876  iSdram/GND_11_o_GND_11_o_equal_10_o<31>13 (iSdram/GND_11_o_GND_11_o_equal_10_o<31>1)
+     LUT6:I5->O           17   0.254   1.209  iSdram/Mmux__n02441013 (iSdram/Mmux__n02441013)
+     LUT6:I5->O            1   0.254   0.000  iSdram/Mmux__n024421 (iSdram/_n0244<0>)
+     FDE:D                     0.074          iSdram/waitCounter_0
+    ----------------------------------------
+    Total                      5.923ns (1.615ns logic, 4.308ns route)
+                                       (27.3% logic, 72.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'iClocks/pll_base_inst/CLKOUT1'
+  Total number of paths / destination ports: 6 / 4
+-------------------------------------------------------------------------
+Offset:              4.888ns (Levels of Logic = 4)
+  Source:            reset (PAD)
+  Destination:       currentState_FSM_FFd4 (FF)
+  Destination Clock: iClocks/pll_base_inst/CLKOUT1 rising
+
+  Data Path: reset to currentState_FSM_FFd4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   1.328   1.152  reset_IBUF (reset_IBUF)
+     LUT4:I0->O            1   0.254   0.790  currentState_FSM_FFd4-In2 (currentState_FSM_FFd4-In2)
+     LUT6:I4->O            1   0.250   0.790  currentState_FSM_FFd4-In3 (currentState_FSM_FFd4-In4)
+     LUT6:I4->O            1   0.250   0.000  currentState_FSM_FFd4-In4 (currentState_FSM_FFd4-In)
+     FD:D                      0.074          currentState_FSM_FFd4
+    ----------------------------------------
+    Total                      4.888ns (2.156ns logic, 2.732ns route)
+                                       (44.1% logic, 55.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'iClocks/pll_base_inst/CLKOUT0'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              2.768ns (Levels of Logic = 2)
+  Source:            DATA<3> (PAD)
+  Destination:       iSdram/dataOut_3 (FF)
+  Destination Clock: iClocks/pll_base_inst/CLKOUT0 falling
+
+  Data Path: DATA<3> to iSdram/dataOut_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IOBUF:IO->O           1   1.328   1.112  DATA_3_IOBUF (N11)
+     LUT5:I0->O            1   0.254   0.000  iSdram/dataOut_3_dpot (iSdram/dataOut_3_dpot)
+     FDE_1:D                   0.074          iSdram/dataOut_3
+    ----------------------------------------
+    Total                      2.768ns (1.656ns logic, 1.112ns route)
+                                       (59.8% logic, 40.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'iClocks/pll_base_inst/CLKOUT0'
+  Total number of paths / destination ports: 29 / 25
+-------------------------------------------------------------------------
+Offset:              5.554ns (Levels of Logic = 2)
+  Source:            iSdram/writeChipDataEnable (FF)
+  Destination:       DATA<15> (PAD)
+  Source Clock:      iClocks/pll_base_inst/CLKOUT0 rising
+
+  Data Path: iSdram/writeChipDataEnable to DATA<15>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.525   0.681  iSdram/writeChipDataEnable (iSdram/writeChipDataEnable)
+     INV:I->O             16   0.255   1.181  iSdram/writeChipDataEnable_inv1_INV_0 (iSdram/writeChipDataEnable_inv)
+     OBUFT:T->O                2.912          DATA_15_OBUFT (DATA<15>)
+    ----------------------------------------
+    Total                      5.554ns (3.692ns logic, 1.862ns route)
+                                       (66.5% logic, 33.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'iClocks/pll_base_inst/CLKOUT1'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              4.118ns (Levels of Logic = 1)
+  Source:            A_7 (FF)
+  Destination:       A<7> (PAD)
+  Source Clock:      iClocks/pll_base_inst/CLKOUT1 rising
+
+  Data Path: A_7 to A<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.525   0.681  A_7 (A_7)
+     OBUF:I->O                 2.912          A_7_OBUF (A<7>)
+    ----------------------------------------
+    Total                      4.118ns (3.437ns logic, 0.681ns route)
+                                       (83.5% logic, 16.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock iClocks/pll_base_inst/CLKOUT0
+-----------------------------+---------+---------+---------+---------+
+                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                 |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------+---------+---------+---------+---------+
+iClocks/pll_base_inst/CLKOUT0|    5.923|         |    2.783|         |
+iClocks/pll_base_inst/CLKOUT1|    4.086|         |         |         |
+-----------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock iClocks/pll_base_inst/CLKOUT1
+-----------------------------+---------+---------+---------+---------+
+                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                 |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------+---------+---------+---------+---------+
+iClocks/pll_base_inst/CLKOUT0|    3.819|    1.579|         |         |
+iClocks/pll_base_inst/CLKOUT1|    6.090|         |         |         |
+-----------------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 8.66 secs
+ 
+--> 
+
+
+Total memory usage is 500828 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   55 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
+

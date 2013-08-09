@@ -1,0 +1,27 @@
+ISim log file
+Running: /home/chris/fpga/sdramcontroller/testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/chris/fpga/sdramcontroller/testbench_isim_beh.wdb 
+ISim P.68d (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+testbench.Inst_mt48lc4m16a2 : at time     128.0 ns AREF : Auto Refresh
+testbench.Inst_mt48lc4m16a2 : at time     203.0 ns AREF : Auto Refresh
+testbench.Inst_mt48lc4m16a2 : at time     286.0 ns LMR  : Load Mode Register
+testbench.Inst_mt48lc4m16a2 :                             CAS Latency      = 2
+testbench.Inst_mt48lc4m16a2 :                             Burst Length     = 1
+testbench.Inst_mt48lc4m16a2 :                             Burst Type       = Sequential
+testbench.Inst_mt48lc4m16a2 :                             Write Burst Mode = Single Location Access
+# run all
+testbench.Inst_mt48lc4m16a2 : at time    1113.0 ns ACT  : Bank = 0 Row =    0
+testbench.Inst_mt48lc4m16a2 : at time    1128.0 ns WRITE: Bank = 0 Row =    0, Col =  30, Data =   245
+testbench.Inst_mt48lc4m16a2 : at time    1173.0 ns ACT  : Bank = 0 Row =    0
+testbench.Inst_mt48lc4m16a2 : at time    1201.0 ns READ : Bank = 0 Row =    0, Col =  30, Data =   245
+Stopped at time : 1874981682 ps : File "/home/chris/fpga/sdramcontroller/mt48lc4m16a2.v" Line 196
+# exit 0

@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj sdramcontroller -o /home/chris/fpga/sdramcontroller/mt48lc4m16a2.vhi -lib work /home/chris/fpga/sdramcontroller//mt48lc4m16a2.v -module mt48lc4m16a2 -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror 
