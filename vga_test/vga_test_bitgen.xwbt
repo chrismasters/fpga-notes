@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/chris/src/cpu8080/trunk/vga_test/vga_test.ncd
+OUTFILE=/home/chris/src/cpu8080/trunk/vga_test/vga_test.bit
+FAMILY=Spartan6
+PART=xc6slx9-3tqg144
+WORKINGDIR=/home/chris/src/cpu8080/trunk/vga_test
+LICENSE=WebPack
+USER_INFO=210775458_0_0_774

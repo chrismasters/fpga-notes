@@ -1,0 +1,40 @@
+//! **************************************************************************
+// Written by: Map P.68d on Wed Jul 17 01:31:00 2013
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "red<1>" LOCATE = SITE "P119" LEVEL 1;
+COMP "red<2>" LOCATE = SITE "P120" LEVEL 1;
+COMP "red<3>" LOCATE = SITE "P121" LEVEL 1;
+COMP "clk" LOCATE = SITE "P94" LEVEL 1;
+COMP "hsync" LOCATE = SITE "P117" LEVEL 1;
+COMP "sw1" LOCATE = SITE "P74" LEVEL 1;
+COMP "sw2" LOCATE = SITE "P95" LEVEL 1;
+COMP "sw3" LOCATE = SITE "P59" LEVEL 1;
+COMP "green<0>" LOCATE = SITE "P84" LEVEL 1;
+COMP "green<1>" LOCATE = SITE "P82" LEVEL 1;
+COMP "green<2>" LOCATE = SITE "P80" LEVEL 1;
+COMP "green<3>" LOCATE = SITE "P78" LEVEL 1;
+COMP "blue<0>" LOCATE = SITE "P99" LEVEL 1;
+COMP "vsync" LOCATE = SITE "P116" LEVEL 1;
+COMP "blue<1>" LOCATE = SITE "P97" LEVEL 1;
+COMP "blue<2>" LOCATE = SITE "P92" LEVEL 1;
+COMP "blue<3>" LOCATE = SITE "P87" LEVEL 1;
+COMP "red<0>" LOCATE = SITE "P118" LEVEL 1;
+TIMEGRP cc_clkfx = BEL "cc/clkout1_buf" BEL "red_0" BEL "green_0" BEL "blue_0"
+        BEL "vsync" BEL "hsync" BEL "vcount_0" BEL "vcount_1" BEL "vcount_2"
+        BEL "vcount_3" BEL "vcount_4" BEL "vcount_5" BEL "vcount_6" BEL
+        "vcount_7" BEL "vcount_8" BEL "vcount_9" BEL "hcount_0" BEL "hcount_1"
+        BEL "hcount_2" BEL "hcount_3" BEL "hcount_4" BEL "hcount_5" BEL
+        "hcount_6" BEL "hcount_7" BEL "hcount_8" BEL "hcount_9";
+PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
+        PINNAME DIVCLK;
+PIN cc/dcm_sp_inst_pins<3> = BEL "cc/dcm_sp_inst" PINNAME CLKIN;
+TIMEGRP clk = PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
+        "cc/dcm_sp_inst_pins<3>";
+NET "cc/clkin1" PERIOD = 31.25 ns HIGH 50%;
+TS_CLK_IN1 = PERIOD TIMEGRP "clk" 31.25 ns HIGH 50% INPUT_JITTER 0.3125 ns;
+TS_cc_clkfx = PERIOD TIMEGRP "cc_clkfx" TS_CLK_IN1 / 0.78125 HIGH 50%
+        INPUT_JITTER 0.3125 ns;
+SCHEMATIC END;
+

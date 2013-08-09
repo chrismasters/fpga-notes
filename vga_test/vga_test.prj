@@ -1,0 +1,2 @@
+vhdl work "ipcore_dir/vga_clk.vhd"
+vhdl work "vga_test.vhd"
