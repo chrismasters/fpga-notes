@@ -1,3 +1,0 @@
-vhdl isim_temp "sdramcontroller.vhd"
-vhdl isim_temp "sdramcontroller_testbench.vhd"
-verilog isim_temp "/opt/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v"

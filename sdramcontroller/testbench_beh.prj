@@ -1,4 +1,0 @@
-vhdl work "sdramcontroller.vhd"
-verilog work "mt48lc4m16a2.v"
-vhdl work "sdramcontroller_testbench.vhd"
-verilog work "/opt/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v"
